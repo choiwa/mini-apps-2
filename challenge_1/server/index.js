@@ -9,7 +9,7 @@ const db = low(adapter)
 
 server.use(middlewares);
 
-console.log(db.get('events').find({date: "-300"}).value());
+console.log(db.get('events').value());
 
 server.get('/', (req, res) => {
 
