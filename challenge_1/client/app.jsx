@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactPaginate from 'react-paginate';
 import $ from 'jquery';
 import Events from './events.jsx';
 
@@ -17,12 +18,12 @@ class App extends React.Component {
 
   componentDidMount() {
     // if fetch directly from jsonServer
-    // let url = "http://localhost:3000/events"
-    // fetch(url)
-    // .then(resp => resp.json())
-    // .then(data => {
-    //   console.log(data);
-    // })
+    let url = "http://localhost:3000/events?_page=20&_limit=10"
+    fetch(url)
+    .then(resp => resp.json())
+    .then(data => {
+      console.log(data);
+    })
   }
 
   handleSubmit(event) {

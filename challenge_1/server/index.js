@@ -12,11 +12,12 @@ server.use(middlewares);
 console.log(db.get('events').value());
 
 server.get('/', (req, res) => {
+//http://localhost:3000/events?_page=7&_limit=5
 
   // console.log({body: res.locals.data});
-  // res.jsonp({
-  //   body: res.locals.data
-  // });
+  res.jsonp({
+    body: res.locals.data
+  });
 })
 
 server.use(router);
