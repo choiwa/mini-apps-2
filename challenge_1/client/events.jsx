@@ -7,7 +7,6 @@ class Events extends React.Component {
   }
 
   render() {
-    console.log(this.props.data)
     return(
       <div>
         {this.props.data.map((entry, i) => <Entry key={i} data={entry}/>)}
