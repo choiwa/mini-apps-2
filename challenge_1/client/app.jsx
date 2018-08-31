@@ -9,7 +9,7 @@ class App extends React.Component {
 
     this.state = {
       search: '',
-      selectedList: [],
+      data: [],
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -18,11 +18,11 @@ class App extends React.Component {
 
   componentDidMount() {
     // if fetch directly from jsonServer
-    let url = "http://localhost:3000/events?_page=20&_limit=10"
+    let url = `http://localhost:3000/events?_page=10&_limit=${this.props.perPage}`
     fetch(url)
     .then(resp => resp.json())
     .then(data => {
-      console.log(data);
+      this.setState({data: data})
     })
   }
 
@@ -45,7 +45,7 @@ class App extends React.Component {
           </label>
           <input type="submit" value="Submit" />
         </form>
-        <Events />
+        <Events data={this.state.data}/>
       </div>
     )
   }

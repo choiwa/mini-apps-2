@@ -4,16 +4,13 @@ import Entry from './entry.jsx';
 class Events extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      events: [],
-    }
   }
 
   render() {
+    console.log(this.props.data)
     return(
       <div>
-        <Entry />
+        {this.props.data.map((entry, i) => <Entry key={i} data={entry}/>)}
       </div>
     )
   }
