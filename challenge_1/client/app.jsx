@@ -10,15 +10,22 @@ class App extends React.Component {
     this.state = {
       search: '',
       data: [],
+      currentPage: 0,
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handlePageClick = this.handlePageClick.bind(this);
+    this.displayPage = this.displayPage.bind(this);
   }
 
   componentDidMount() {
+    this.displayPage();
+  }
+
+  displayPage() {
     // if fetch directly from jsonServer
-    let url = `http://localhost:3000/events?_page=10&_limit=${this.props.perPage}`
+    let url = `http://localhost:3000/events?_page=${this.state.currentPage}&_limit=${this.props.perPage}`
     fetch(url)
     .then(resp => resp.json())
     .then(data => {
@@ -32,6 +39,13 @@ class App extends React.Component {
 
   handleChange(event) {
     this.setState({search: event.target.value});
+  }
+
+  handlePageClick(data) {
+    //Exposes the current page object as an argument.
+    console.log(data.selected)
+    this.setState({currentPage: data.selected + 1})
+    this.displayPage();
   }
 
   render() {
