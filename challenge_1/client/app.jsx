@@ -1,5 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
+import Events from './events.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -43,6 +44,7 @@ class App extends React.Component {
           </label>
           <input type="submit" value="Submit" />
         </form>
+        <Events />
       </div>
     )
   }
