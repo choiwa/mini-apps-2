@@ -1,6 +1,5 @@
 import React from 'react';
 import $ from 'jquery';
-// import Chart from 'chart.js';
 import RC2 from 'react-chartjs2';
 import Chart from './chart.jsx';
 
@@ -13,7 +12,6 @@ class App extends React.Component {
       labels: [],
       values: [],
     }
-
   }
 
   componentDidMount() {
@@ -24,7 +22,6 @@ class App extends React.Component {
 
   }
   render() {
-    console.log(this.state.data)
     return (
       <div>
         <Chart labels={this.state.labels} values={this.state.values}/>
