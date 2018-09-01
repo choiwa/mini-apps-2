@@ -25,7 +25,6 @@ class App extends React.Component {
 
   displayPage() {
     // if fetch directly from jsonServer
-    console.log("im triggled", this.state.search)
     let url = `http://localhost:3000/events?q=${this.state.search}&_page=${this.state.currentPage}&_limit=${this.props.perPage}`
     fetch(url)
     .then(resp => resp.json())
