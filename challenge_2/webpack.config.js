@@ -9,7 +9,8 @@ module.exports = {
         exclude: /node_modules/,
         loader: "babel-loader",
         options: {
-          presets: ["@babel/preset-react"]
+          presets: ["@babel/preset-env", "@babel/preset-react"],
+          // "plugins": ["@babel/plugin-proposal-class-properties"]
         }
       }
     ]
@@ -18,7 +19,7 @@ module.exports = {
   extensions: ['*', '.js', '.jsx']
 },
   output: {
-    path: path.resolve(__dirname, 'public'),
+    path: path.join(__dirname, 'public'),
     filename: 'bundle.js'
   }
 }
