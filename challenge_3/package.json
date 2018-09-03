@@ -5,13 +5,14 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js",
+    "start": "nodemon ./server/server.js",
     "build": "webpack -d --watch"
   },
   "author": "Joyce Cho",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.2",
     "babel-preset-env": "^1.7.0",
@@ -20,5 +21,8 @@
     "react-dom": "^16.4.2",
     "style-loader": "^0.23.0",
     "webpack": "^4.17.1"
+  },
+  "dependencies": {
+    "express": "^4.16.3"
   }
 }
