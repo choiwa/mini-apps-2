@@ -15,18 +15,19 @@ class ScoreBoard extends React.Component {
     return (
       <div>
         <table width="400">
-          <tr>
-            <th>Frame</th>
-              {this.state.frames.map((frame) =>
-                <Frame num={frame} />
-              )}
-              <th>Final Score</th>
-          </tr>
-          <tr>
-            <th>Player 1</th>
-            <Scores />
-          </tr>
-
+          <tbody>
+            <tr>
+              <th>Frame</th>
+                {this.state.frames.map((frame, i) =>
+                  <Frame key={i} num={frame} />
+                )}
+                <th>Final Score</th>
+            </tr>
+            <tr>
+              <th>Player 1</th>
+              <Scores score={this.props.value}/>
+            </tr>
+          </tbody>
         </table>
       </div>
 

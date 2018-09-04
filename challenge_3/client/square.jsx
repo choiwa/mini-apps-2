@@ -1,9 +1,13 @@
 import React from 'react';
 
 class Square extends React.Component {
+  handleScore(i) {
+    console.log("hello!!!")
+    this.setState({score: i});
+  }
   render() {
     return (
-      <button>{this.props.value}</button>
+      <button onClick={this.props.onClick}>{this.props.value}</button>
     )
   }
 }

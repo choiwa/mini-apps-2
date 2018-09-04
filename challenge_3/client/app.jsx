@@ -5,10 +5,24 @@ import ScoreBoard from './scoreBoard.jsx';
 class App extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      score: 0,
+    }
+
+    this.renderSquare = this.renderSquare.bind(this);
+    this.handleScore = this.handleScore.bind(this);
+
+
   }
 
   renderSquare(i) {
-    return <Square value={i} />;
+    // this will change the state of App.jsx
+    return <Square value={i} onClick={()=>this.handleScore(i)}/>;
+  }
+
+  handleScore(i) {
+    this.setState({score: i});
   }
 
   render() {
@@ -35,7 +49,7 @@ class App extends React.Component {
         </div>
         <p></p>
         <div>
-          <ScoreBoard />
+          <ScoreBoard value={this.state.score}/>
         </div>
       </div>
     )
