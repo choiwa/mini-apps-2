@@ -1,5 +1,6 @@
 import React from 'react';
 import Square from './square.jsx';
+import ScoreBoard from './scoreBoard.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -30,8 +31,12 @@ class App extends React.Component {
         </div>
         <div>
           {this.renderSquare(9)}
+          {this.renderSquare(10)}
         </div>
-
+        <p></p>
+        <div>
+          <ScoreBoard />
+        </div>
       </div>
     )
   }
