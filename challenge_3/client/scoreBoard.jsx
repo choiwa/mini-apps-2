@@ -1,5 +1,6 @@
 import React from 'react';
-import Score from './score.jsx';
+import Frame from './frame.jsx';
+import Scores from './scores.jsx'
 
 class ScoreBoard extends React.Component {
   constructor(props) {
@@ -16,10 +17,16 @@ class ScoreBoard extends React.Component {
         <table width="400">
           <tr>
             <th>Frame</th>
-          {this.state.frames.map((frame) =>
-            <Score score={frame} />
-          )}
+              {this.state.frames.map((frame) =>
+                <Frame num={frame} />
+              )}
+              <th>Final Score</th>
           </tr>
+          <tr>
+            <th>Player 1</th>
+            <Scores />
+          </tr>
+
         </table>
       </div>
 
