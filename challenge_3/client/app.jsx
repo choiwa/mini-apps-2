@@ -34,10 +34,18 @@ class App extends React.Component {
     this.setState({addPointsTracker: [tracker + 1, tracker + 2]});
   }
 
-  isStrike(score) {
+  isStrike(score, currentBall) {
     if (score === 10 && currentBall === 0) {
       return true;
     }
+    return false;
+  }
+
+  isSpare(twoTries) {
+    if (twoTries[0] + twoTries[1] === 10) {
+      return true;
+    }
+
     return false;
   }
 
