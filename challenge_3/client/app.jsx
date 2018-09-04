@@ -8,6 +8,9 @@ class App extends React.Component {
 
     this.state = {
       score: 0,
+      currentBall: 0,
+      totalScores: [],
+      addPointsTracker: [],
     }
 
     this.renderSquare = this.renderSquare.bind(this);
@@ -21,9 +24,24 @@ class App extends React.Component {
     return <Square value={i} onClick={()=>this.handleScore(i)}/>;
   }
 
-  handleScore(i) {
-    this.setState({score: i});
+  handleScore(score) {
+    var total = this.state.totalScores;
+    var tracker = total.length - 1;
+    if (isStrike(score)) {
+      total.push([10]);
+    }
+    this.setState({totalScores: total})
+    this.setState({addPointsTracker: [tracker + 1, tracker + 2]});
   }
+
+  isStrike(score) {
+    if (score === 10 && currentBall === 0) {
+      return true;
+    }
+    return false;
+  }
+
+
 
   render() {
     return (

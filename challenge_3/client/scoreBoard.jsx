@@ -8,7 +8,12 @@ class ScoreBoard extends React.Component {
 
     this.state = {
       frames: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+      currentScore: this.props.value,
     }
+  }
+
+  handleScore() {
+    this.setState({currentScore: this.props.value});
   }
 
   render() {
@@ -25,7 +30,7 @@ class ScoreBoard extends React.Component {
             </tr>
             <tr>
               <th>Player 1</th>
-              <Scores score={this.props.value}/>
+              <Scores score={this.state.currentScore}/>
             </tr>
           </tbody>
         </table>
